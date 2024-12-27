@@ -1,8 +1,5 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  basePath: '/sentinela',
-}
+const nextConfig: NextConfig = {}
 
 export default nextConfig

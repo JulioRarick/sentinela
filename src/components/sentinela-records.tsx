@@ -1,6 +1,5 @@
 'use client'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 interface Record {
   ID: number
@@ -18,8 +17,6 @@ export function SentinelaRecords() {
     'none' | 'Edicao' | 'Ano' | 'conteudo'
   >('none')
   const [filterValue, setFilterValue] = useState('')
-
-  const pathname = usePathname()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -107,12 +104,12 @@ export function SentinelaRecords() {
               {record.Dia}
             </div>
             <a
-              href={`${pathname}/PDFs/${record.Edicao}.pdf`}
+              href={`/sentinela/PDFs/${record.Edicao}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Image
-                src={`${pathname}/capas/${record.Arquivo}`}
+                src={`/sentinela/capas/${record.Arquivo}`}
                 alt={`Edição ${record.Edicao}`}
                 width={150}
                 height={150}
