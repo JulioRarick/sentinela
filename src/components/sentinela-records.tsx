@@ -104,12 +104,12 @@ export function SentinelaRecords() {
               {record.Dia}
             </div>
             <a
-              href={`/sentinela/PDFs/${record.Edicao}.pdf`}
+              href={`/PDFs/${record.Edicao}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Image
-                src={`/sentinela/capas/${record.Arquivo}`}
+                src={`/capas/${record.Arquivo}`}
                 alt={`Edição ${record.Edicao}`}
                 width={150}
                 height={150}
