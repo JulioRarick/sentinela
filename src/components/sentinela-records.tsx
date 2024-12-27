@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-
 interface Record {
   ID: number
   Edicao: number
@@ -18,12 +18,13 @@ export function SentinelaRecords() {
     'none' | 'Edicao' | 'Ano' | 'conteudo'
   >('none')
   const [filterValue, setFilterValue] = useState('')
+  const basePath = usePathname()
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Construir a URL com parâmetros de busca
-        const url = new URL('http://localhost:3000/api/dados')
+        const url = new URL(`${basePath}/api/dados`)
         url.searchParams.set('filtro', filterType)
         url.searchParams.set('valor', filterValue)
 
@@ -105,12 +106,12 @@ export function SentinelaRecords() {
               {record.Dia}
             </div>
             <a
-              href={`/PDFs/${record.Edicao}.pdf`}
+              href={`${basePath}/PDFs/${record.Edicao}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Image
-                src={`/capas/${record.Arquivo}`}
+                src={`${basePath}/capas/${record.Arquivo}`}
                 alt={`Edição ${record.Edicao}`}
                 width={150}
                 height={150}
