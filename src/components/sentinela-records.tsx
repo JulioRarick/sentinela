@@ -22,7 +22,7 @@ export function SentinelaRecords() {
     const fetchData = async () => {
       try {
         // Construir a URL com parâmetros de busca
-        const url = new URL(`/api/dados`)
+        const url = new URL(`http://localhost:3000/api/dados`)
         url.searchParams.set('filtro', filterType)
         url.searchParams.set('valor', filterValue)
 
